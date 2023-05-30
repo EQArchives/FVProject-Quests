@@ -8,12 +8,12 @@ sub EVENT_SAY {
 	elsif ($text=~/ready to venture to freeport/i) {
 		quest::say("Find a way to the port of Freeport.  Seek out Giz Dinree.  She is usually near the shores at night.  She is your contact. Tell her you were [sent by TanI].  She will fill you in on your mission.  Good luck.  Do not waste time practicing your skills. Go as you are.");
 	}
-#::	elsif ($text=~/book of souls/i) {
-#::		quest::say("The Book of Souls chronicles all the lives Innoruuk has tainted over the years. It is in the care of the Maestro of Rancor. I can use this tome as a basis for my translation, if you return it and the note to me. An experienced practitioner in the art of non-detection should be able to snatch it from its resting place, don't you think, $race?'");
-#::	}
-#::	elsif ($text=~/note/i) {
-#::		quest::say("Oh, you want that piece of paper Stanos was so hot after? Well it's mine now, though it looks like ogre scratch to me. You're not getting it, Stanos is not getting it, and Hanns is not getting it. It is MINE! Now, $race, scamper off like the dog you are, before I decide I need more practice with these short swords!");
-#::	}
+	elsif ($text=~/book of souls/i && quest::is_content_flag_enabled("Kunark_EpicsEra")) {
+		quest::say("The Book of Souls chronicles all the lives Innoruuk has tainted over the years. It is in the care of the Maestro of Rancor. I can use this tome as a basis for my translation, if you return it and the note to me. An experienced practitioner in the art of non-detection should be able to snatch it from its resting place, don't you think, $race?'");
+	}
+	elsif ($text=~/note/i && quest::is_content_flag_enabled("Kunark_EpicsEra")) {
+		quest::say("Oh, you want that piece of paper Stanos was so hot after? Well it's mine now, though it looks like ogre scratch to me. You're not getting it, Stanos is not getting it, and Hanns is not getting it. It is MINE! Now, $race, scamper off like the dog you are, before I decide I need more practice with these short swords!");
+	}
 }
 
 sub EVENT_ITEM {
