@@ -45,7 +45,10 @@ sub EVENT_ITEM {
 }
 
 sub EVENT_SIGNAL {
-	quest::say("Vilnius has always had a good eye for talent. I think we can trust this one. But will he trust us? You have to wonder if he even knows who we are...");
-	#:: Signals Stanos with 0ms wait
-	quest::signal(5088, 0);
+	#:: Receive signal '2' from Stanos Herkanor as part of the Rogue Epic 1.0 dialogue
+	if ($signal eq 2) {
+		quest::say("Vilnius has always had a good eye for talent. I think we can trust this one. But will he trust us? You have to wonder if he even knows who we are...");
+		#:: Signals Stanos with signal '1' at a 0ms wait
+		quest::signalwith(5088, 1, 0);
+	}
 }
